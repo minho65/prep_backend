@@ -1,6 +1,5 @@
 package com.lgcns.tct_backend.MzList.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -14,7 +13,6 @@ import com.lgcns.tct_backend.MzList.Model.MzListWithRestaurantsResponse;
 import com.lgcns.tct_backend.MzList.Repository.MzListRepository;
 import com.lgcns.tct_backend.User.Model.User;
 import com.lgcns.tct_backend.User.Repository.UserRepository;
-import com.lgcns.tct_backend.Util.LocalDateTimeUtil;
 
 import lombok.RequiredArgsConstructor;
 

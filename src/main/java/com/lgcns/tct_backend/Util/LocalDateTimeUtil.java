@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 public class LocalDateTimeUtil {
     private static final DateTimeFormatter localDateFormat = DateTimeFormatter.ofPattern("yyyyMMdd");
 
+    /*
+     *  TimeZone : Seoul
+     */
     public static LocalDateTime now(){
         return  LocalDateTime.now(ZoneId.of("Asia/Seoul"));
     }
