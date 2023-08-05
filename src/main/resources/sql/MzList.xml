@@ -43,4 +43,13 @@
             WHERE mzlist.LIST_ID = #{listId}
         ]]>
     </select>
+
+    <insert id="createMzList" parameterType="MzList">
+        <![CDATA[
+            INSERT INTO TB_MZ_LIST
+                (LIST_ID, USER_ID, LIST_NAME, CREATED_DATE)
+            VALUES
+                (#{listId}, #{userId}, #{listName}, #{createdDate})
+        ]]>
+    </insert>
 </mapper>

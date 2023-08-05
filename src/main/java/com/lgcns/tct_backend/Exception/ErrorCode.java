@@ -8,7 +8,8 @@ public enum ErrorCode {
 
     // Business Error
     INVALID_USER_ID(HttpStatus.BAD_REQUEST.value(), null, "Invalid userId"),
-    INVALID_LIST_ID(HttpStatus.BAD_REQUEST.value(), null, "Invalid listId");
+    INVALID_LIST_ID(HttpStatus.BAD_REQUEST.value(), null, "Invalid listId"),
+    INVALID_REQUEST_PROVIDED(HttpStatus.BAD_REQUEST.value(), null, "invalid request provided");
 
     private final String code;
     private final String message;

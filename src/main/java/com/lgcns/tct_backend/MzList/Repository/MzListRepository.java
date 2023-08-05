@@ -9,4 +9,5 @@ import com.lgcns.tct_backend.MzList.Model.MzListWithRestaurantsResponse;
 public interface MzListRepository {
     MzList selectMzListByListId(String listId);
     MzListWithRestaurantsResponse selectMzListWithRestaurants(String listId);
+    void createMzList(MzList mzList);
 }
