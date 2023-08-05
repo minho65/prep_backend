@@ -2,7 +2,6 @@ package com.lgcns.tct_backend.Restaurant.Model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @NoArgsConstructor

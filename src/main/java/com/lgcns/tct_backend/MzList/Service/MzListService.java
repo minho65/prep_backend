@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.lgcns.tct_backend.Exception.CustomException;
+import com.lgcns.tct_backend.Exception.ErrorCode;
 import com.lgcns.tct_backend.MzList.Model.MzList;
 import com.lgcns.tct_backend.MzList.Model.MzListResponse;
 import com.lgcns.tct_backend.MzList.Model.MzListWithRestaurantsResponse;
@@ -20,7 +22,7 @@ public class MzListService {
     public MzListResponse getMzListByListId(String listId){
         Optional<MzList> mzListOpt = Optional.ofNullable(mzListRepository.selectMzListByListId(listId));
 
-        if(mzListOpt.isEmpty()) throw new IllegalArgumentException("wrong listId");
+        if(mzListOpt.isEmpty()) throw new CustomException(ErrorCode.INVALID_LIST_ID);
 
         return MzListResponse.mzListModel().mzList(mzListOpt.get()).build();
     }
@@ -28,7 +30,7 @@ public class MzListService {
     public MzListWithRestaurantsResponse getMzListWithRestaurants(String listId){
         Optional<MzListWithRestaurantsResponse> mzListResOpt = Optional.ofNullable(mzListRepository.selectMzListWithRestaurants(listId));
 
-        if(mzListResOpt.isEmpty()) throw new IllegalArgumentException("wrong listId");
+        if(mzListResOpt.isEmpty()) throw new CustomException(ErrorCode.INVALID_LIST_ID);
 
         return mzListResOpt.get();
     }
