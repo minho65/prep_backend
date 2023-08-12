@@ -23,6 +23,7 @@
     <resultMap id = "mzListType" type= "MzListResponse">
         <id column = "LIST_ID" property="listId"/>
         <result column = "LIST_NAME" property="listName" />
+        <result column = "CREATED_DATE" property="createdDate" javaType="String" />
     </resultMap>
 
     <select id = "selectUserWithMzList" resultMap = "UserWithMzListType">
@@ -31,7 +32,8 @@
                    user.USER_ID,
                    user.USER_NAME,
                    mzlist.LIST_ID,
-                   mzlist.LIST_NAME
+                   mzlist.LIST_NAME,
+                   mzlist.CREATED_DATE
             FROM TB_USER user
             LEFT JOIN TB_MZ_LIST mzlist ON user.USER_ID = mzlist.USER_ID 
             WHERE user.USER_ID =  #{userId}

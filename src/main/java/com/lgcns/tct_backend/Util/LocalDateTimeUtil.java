@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class LocalDateTimeUtil {
     private static final DateTimeFormatter localDateFormat = DateTimeFormatter.ofPattern("yyyyMMdd");
 
