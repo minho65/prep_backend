@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lgcns.tct_backend.Restaurant.Repository.RestaurantRepository">
+    <select id="selectValidRestaurant" resultType="Restaurant">
+        <![CDATA[
+            SELECT
+                RESTAURANT_ID,
+                RESTAURANT_NAME,
+                RESTAURANT_ADDRESS,
+                RESTAURANT_CATEGORY,
+                OPERATION_YN
+            FROM
+                TB_RESTAURANT
+            WHERE
+                OPERATION_YN = 'Y'
+        ]]>
+    </select>
+</mapper>
