@@ -63,4 +63,13 @@
             WHERE res.OPERATION_YN = 'Y'
         ]]>
     </select>
+
+    <insert id = "createMzListRestaurantRels" parameterType="java.util.List">
+        INSERT INTO TB_MZ_LIST_RESTAURANT_REL
+            (RESTAURANT_LIST_REL_ID, RESTAURANT_ID, LIST_ID)
+        VALUES
+            <foreach item="item" collection="list" separator=" , ">
+                (#{item.restaurantListRelId}, #{item.restaurantId}, #{item.listId})
+            </foreach>
+    </insert>
 </mapper>

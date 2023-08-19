@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.lgcns.tct_backend.MzList.Model.MzList;
 import com.lgcns.tct_backend.MzList.Model.MzListWithRestaurantsResponse;
 import com.lgcns.tct_backend.Restaurant.Model.EnrolledYnRestuarant;
+import com.lgcns.tct_backend.MzList.Model.RestaurantListRel;
 
 @Mapper
 public interface MzListRepository {
@@ -14,4 +15,5 @@ public interface MzListRepository {
     MzListWithRestaurantsResponse selectMzListWithRestaurants(String listId);
     void createMzList(MzList mzList);
     List<EnrolledYnRestuarant> selectEnrolledYnRestaurants(String listId);
+    void createMzListRestaurantRels(List<RestaurantListRel> createReqList);
 }
