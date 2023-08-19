@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lgcns.tct_backend.Exception.CustomException;
 import com.lgcns.tct_backend.Exception.ErrorCode;
 import com.lgcns.tct_backend.MzList.Model.CreateMzListRequest;
+import com.lgcns.tct_backend.MzList.Model.EnrolledYnResponse;
 import com.lgcns.tct_backend.MzList.Model.MzListResponse;
 import com.lgcns.tct_backend.MzList.Model.MzListWithRestaurantsResponse;
 import com.lgcns.tct_backend.MzList.Service.MzListService;
@@ -41,5 +42,10 @@ public class MzListController {
             throw new CustomException(ErrorCode.INVALID_REQUEST_PROVIDED);
         }
         return ResponseEntity.ok(mzListService.createMzList(request));
+    }
+
+    @GetMapping("/{listId}/enrolledyn")
+    public ResponseEntity<EnrolledYnResponse> getEnrolledYnRestaurantByListId(@PathVariable(name = "listId") String listId){
+        return ResponseEntity.ok(mzListService.getEnrolledYnRestaurantByListId(listId));
     }
 }
