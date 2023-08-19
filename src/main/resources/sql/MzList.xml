@@ -63,4 +63,36 @@
             WHERE res.OPERATION_YN = 'Y'
         ]]>
     </select>
+
+    <select id="selectEnrolledRel" parameterType="String" resultType="EnrolledRel">
+        <![CDATA[
+            SELECT
+                res.RESTAURANT_ID,
+                rel.RESTAURANT_LIST_REL_ID,
+                CASE WHEN rel.RESTAURANT_ID IS NOT NULL THEN 'Y' ELSE 'N' END as ENROLLED_YN
+            FROM TB_RESTAURANT res
+            LEFT JOIN TB_MZ_LIST_RESTAURANT_REL rel ON rel.RESTAURANT_ID = res.RESTAURANT_ID 
+                                                    AND rel.LIST_ID = #{listId}
+            WHERE res.OPERATION_YN = 'Y'
+        ]]>
+    </select>
+
+    <insert id = "createMzListRestaurantRels" parameterType="java.util.List">
+        INSERT INTO TB_MZ_LIST_RESTAURANT_REL
+            (RESTAURANT_LIST_REL_ID, RESTAURANT_ID, LIST_ID)
+        VALUES
+            <foreach item="item" collection="list" separator=" , ">
+                (#{item.restaurantListRelId}, #{item.restaurantId}, #{item.listId})
+            </foreach>
+    </insert>
+
+    <delete id = "deleteMzListRestaurantRels" parameterType="java.util.List">
+        DELETE FROM TB_MZ_LIST_RESTAURANT_REL
+        <where> 
+            RESTAURANT_LIST_REL_ID IN
+            <foreach collection="list" item="item" index="index" separator="," open="(" close=")"> 
+                #{item}
+            </foreach> 
+	    </where> 
+    </delete>
 </mapper>

@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,8 @@ import com.lgcns.tct_backend.MzList.Model.EnrolledYnResponse;
 import com.lgcns.tct_backend.MzList.Model.MzListResponse;
 import com.lgcns.tct_backend.MzList.Model.MzListWithRestaurantsResponse;
 import com.lgcns.tct_backend.MzList.Service.MzListService;
+import com.lgcns.tct_backend.MzList.Model.UpdateMzListRestaurantRel;
+import com.lgcns.tct_backend.MzList.Model.UpdateRelResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -47,5 +50,10 @@ public class MzListController {
     @GetMapping("/{listId}/enrolledyn")
     public ResponseEntity<EnrolledYnResponse> getEnrolledYnRestaurantByListId(@PathVariable(name = "listId") String listId){
         return ResponseEntity.ok(mzListService.getEnrolledYnRestaurantByListId(listId));
+    }
+
+    @PutMapping("/restaurantrel")
+    public ResponseEntity<UpdateRelResponse> updateMzListRestaurantRel(@RequestBody UpdateMzListRestaurantRel reqeust){
+        return ResponseEntity.ok(mzListService.updateMzListRestaurantRel(reqeust));
     }
 }

@@ -5,9 +5,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class EnrolledYnRestuarant {
+public class EnrolledRel {
     private String restaurantId;
-    private String restaurantName;
+    private String restaurantListRelId;
     private String enrolledYn;
 
     public boolean isEnrolled(){
